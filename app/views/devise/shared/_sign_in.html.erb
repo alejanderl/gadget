@@ -1,0 +1,27 @@
+<div id="user_nav">  
+  <% if user_signed_in? %>
+    
+    <div class="btn-group">
+   	 <a class="btn btn-default  btn-black dropdown-toggle" data-toggle="dropdown"><i class=" glyphicon glyphicon-user"></i></a>
+     <ul class="dropdown-menu pull-left">
+    
+
+      <li><%= link_to "users.my_profile".t, edit_user_registration_path %></li>
+    		<li><%= link_to "users.sign_out".t , destroy_user_session_path, :method => :delete %></li>
+    		
+        	
+     </ul>
+    </div><!-- /btn-group -->
+   
+      
+      
+    
+
+   
+  <% else %>  
+
+
+    <%= link_to "Sign up", new_user_registration_path %> or  
+    <%= link_to "Sign in", new_user_session_path %>  
+  <% end %>  
+</div>  

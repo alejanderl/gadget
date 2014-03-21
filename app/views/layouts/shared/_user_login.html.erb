@@ -1,0 +1,8 @@
+<% if user_signed_in? %>
+  Logged in as <strong><%= current_user.email %></strong>.
+  <%= link_to 'users.edit_profile'.t, edit_user_registration_path %> |
+  <%= link_to "users.logout".t, destroy_user_session_path, method: :delete %>
+<% else %>
+  <%= link_to "users.sign_up", new_user_registration_path %> |
+  <%= link_to "users.login", new_user_session_path %>
+<% end %>

@@ -4,12 +4,16 @@ require 'spec_helper'
 describe "Users testing"   do
   
   before :each do
+	sleep 1
     create_sample_users
     
 
   end
   
-  pending "user can loggin" do
+  it "user can loggin" do
+
+
+  	user_login "guest@example.com", "guest123"
 
 
 

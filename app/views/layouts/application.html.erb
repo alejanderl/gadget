@@ -1,14 +1,39 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Gadgets</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
+  <title>TeatroDelBarrio</title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
 
-<%= yield %>
+	<div id='container'>
 
+    <%= render "layouts/header" %>
+
+
+    <div id="separator" class="centered"></div>
+    <%= render 'layouts/shared/flash', :flash => flash unless @defer_flash %>
+
+  <article>
+    <div class="centered container">
+      <%= yield %>
+    </div>
+  </article>
+  <div id="footer">
+  
+  
+  </div>
+
+	</div>
+  <%= yield :footer_scripts %>
 </body>
 </html>
+
+
+
+
+
+  
