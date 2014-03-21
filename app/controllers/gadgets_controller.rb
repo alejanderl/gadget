@@ -6,11 +6,9 @@ class GadgetsController < ApplicationController
 
 	def index
 		
-		if current_user
-			@gadgets = current_user.gadgets.page params[:page]
-		else
+
 			@gadgets = Gadget.all.page params[:page]
-		end
+
 
 
 	end
