@@ -8,7 +8,7 @@
 
 	  	<div class="form-group col-md-10 col-xs-12">
 			<%= t.label :description %>
-			<%= t.text_field	 :description , :class => "form-control" %>
+			<%= t.text_area	 :description , :class => "form-control" %>
 		</div>
 		<hr>
 		<div class="col-md-10 col-xs-12">
@@ -45,9 +45,7 @@
 
 			  			
 				  <input id="gadget_images_attributes_{{random}}_file" name="gadget[images_attributes][{{random}}][file]"  type="file" class="form-control"  />
-				 <div class="input-group-btn">
-			    	<%= link_to "<span class='glyphicon glyphicon-remove'>#{"global.delete".t}</span>".html_safe, "#", :class => "remove_new_question  btn btn-warning " , :title => "questions.remove_question".t %>
-			  	</div>
+
 		</div>
 
 		</li>
