@@ -38,6 +38,14 @@ gem 'devise'
 gem 'carrierwave'
 
 
+
+
+gem 'bootstrap-sass', '~> 3.1.1'
+
+
+# version 2.12 has some problems deploying on heroku
+gem 'sprockets', '2.11.0'
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
