@@ -8,4 +8,12 @@ module ApplicationHelper
         when :alert then "alert alert-warning "
     end
   end
+
+  def is_mine? object
+    if current_user
+  	 current_user.id == object.user_id
+    else
+      false
+    end
+  end
 end

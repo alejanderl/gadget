@@ -57,33 +57,19 @@ module TestHelpers
 
     attrs2 = attrs.dup
     random = Random.rand(42-10)
-    attrs2[:title]       = attrs[:title]      || "Título de prueba #{random}  "
-    attrs2[:description] = attrs[:title]      || "descripción de prueba #{random}  "
-    attrs2[:start_date]  = attrs[:start_date] || (Time.now - 1.hour)
-    attrs2[:end_date]    = attrs[:end_date]   || (Time.now + 2.days)
-    attrs2[:user_id]     = attrs[:user_id]    || User.where(:admin => "1").first.id
-    poll = Poll.new attrs2
-    questions   = attrs[:questions]  || [{:poll => poll}]
-
-    questions.each do |question|
-      create_question question
-    end
+    attrs2[:name]       = attrs[:title]       || "Título de prueba #{random}  "
+    attrs2[:description] = attrs[:description]      || "descripción de prueba #{random} "
+    attrs2[:user_id] = attrs[:user_id]        || User.last.id
+    gadget = Gadget.create attrs2
     
-    poll.save
+    gadget.save
     # return the created object
-    poll
+    gadget
+
   end
 
   def create_image attrs = {}
 
-    attrs2 = attrs.dup
-    random = Random.rand(42-10)
-    attrs2[:poll] = attrs[:poll] || Poll.first
-    attrs2[:matter]  = attrs[:matter]  || "pregunta de prueba #{random}  "
-    
-    question = attrs2[:poll].questions.build attrs2 
-    question.save
-    question
 
 
   end

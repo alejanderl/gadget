@@ -1,2 +1,44 @@
+<h1 class="background-title"> <%= "gadgets.gadgets_list".t %></h1>
+<br/>
+<hr>
+<%= link_to "global.new".t, new_gadget_path, :class => "btn btn-lg btn-primary pull-right" , style: "position:relative;z-index:1;"  if current_user %>
 
-hola caracola
+
+
+
+
+
+
+<div class="row">
+  <% @gadgets.each do |gadget|%>
+
+    <div class="col-md-offset-1 col-md-10   col-xs-offset-1 col-xs-10 box_container ">
+
+         
+
+
+      <div class="name">
+       <h2> <%= link_to gadget.name,gadget %></h2>
+      </div>
+
+
+
+      
+
+
+
+      <div class="row">
+        <div class="description col-md-9 " style="padding-left:30px;">
+          <%= gadget.description  %>
+        </div>
+
+         
+        
+      </div>
+
+      
+      <%=render "images/list", :images => gadget.images %>
+    </div>
+
+  <% end %>
+</div>

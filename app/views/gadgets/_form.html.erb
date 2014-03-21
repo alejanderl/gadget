@@ -1,0 +1,65 @@
+<%= form_for @gadget, :html => { :multipart => true } do |t| %>
+
+	  	<div class="form-group col-md-7 col-xs-12">
+			<%= t.label :name %>
+			<%= t.text_field	 :name , :class => "form-control" %>
+		</div>
+
+
+	  	<div class="form-group col-md-7 col-xs-12">
+			<%= t.label :description %>
+			<%= t.text_field	 :description , :class => "form-control" %>
+		</div>
+
+		<p><%= "global.images".t %></p>
+		<ul id="images">
+			<%  %>
+			<%= t.fields_for :images do |f| %>
+				<li class="old_image">
+
+				  	<%= f.label :file,  "images.file".t  %><br />
+					<%= f.file_field :matter,:class => "form-control" %>
+					<%= f.hidden_field :_destroy , :class => "destroy"%>
+					 <%= link_to "<span class='glyphicon glyphicon-remove'></span>".html_safe, "#", :class => "remove_old_image btn btn-warning " , :title => "images.remove_image".t %>
+				</li>
+			<% end %>
+		</ul>
+		<%= link_to "<span class='glyphicon glyphicon-plus'>#{"global.add".t}</span>".html_safe, "#",:id => "add_image",:title => "gadgets.add_image".t, :class => "btn btn-default btn-small ", :data =>{"no-turbolink" => "true"} %>
+	
+
+		<%= t.submit "global.send".t %>
+
+<% end %>
+
+<% flash.now[:error] = render 'layouts/shared/error_messages', :target=>@gadget if @gadget.errors.any? %>
+
+  <script type="text/html" id="gadget_image">
+
+
+  		<li class="new_question">
+  		  <label for="gadget_image_attributes_{{random}}_image"><%= "global.images".t %></label><br />
+	  		<div class="input-group">
+
+			  			
+				  <input id="gadget_images_attributes_{{random}}_file" name="gadget[images_attributes][{{random}}][file]"  type="file" class="form-control"  />
+				 <div class="input-group-btn">
+			    	<%= link_to "<span class='glyphicon glyphicon-remove'>#{"global.delete".t}</span>".html_safe, "#", :class => "remove_new_question  btn btn-warning " , :title => "questions.remove_question".t %>
+			  	</div>
+		</div>
+
+		</li>
+
+</script>
+
+
+<%= content_for :footer_scripts do %>
+	<script >
+
+		$(document).ready(function(){
+			window.gadtes_form = new Gadgets.GadgetBuilder();
+			
+
+		})
+
+	</script> 
+<% end %>

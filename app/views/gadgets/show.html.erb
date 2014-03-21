@@ -1,0 +1,23 @@
+<div class="row">
+  <h1 class="title col-md-10" ><%= @gadget.name   %></h1>
+
+  <div id="content" class="row">
+
+  	<div class="col-md-8 col-xs-11">
+  		
+  		<%= @gadget.description %>
+
+  	</div>
+
+
+  </div>
+
+	<%= render "images/list" , images: @gadget.images %>
+
+</div>
+
+
+<%= link_to( "global.edit".t , edit_gadget_path(@gadget)) if is_mine? @gadget %>
+<%= link_to( "global.delete".t , @gadget, method: :delete) if is_mine? @gadget %>
+
+

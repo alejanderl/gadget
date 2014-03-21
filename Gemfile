@@ -31,10 +31,13 @@ gem 'jquery-rails'
 gem "kaminari"
 
 
+
+
 #User authentication
 gem 'devise'
 
 # File management
+gem "rmagick"
 gem 'carrierwave'
 
 
