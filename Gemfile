@@ -26,6 +26,18 @@ end
 
 gem 'jquery-rails'
 
+
+# Pagination gem
+gem "kaminari"
+
+
+#User authentication
+gem 'devise'
+
+# File management
+gem 'carrierwave'
+
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
@@ -40,3 +52,20 @@ gem 'jquery-rails'
 
 # To use debugger
 # gem 'debugger'
+group :development, :test do
+
+
+
+    #gem 'turn'
+
+    gem 'rspec-rails'
+    gem 'capybara'
+    gem 'selenium-webdriver'
+    gem 'launchy'
+    gem 'database_cleaner'
+
+
+    # Gemfile
+
+    gem 'debugger'
+end
