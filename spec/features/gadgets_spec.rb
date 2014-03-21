@@ -9,7 +9,7 @@ describe "Gadgets testing"   do
 
   end
   
-  it "user can create a new gadget" do
+  it "user can create a new gadget" , :js do
 
    user_login("guest@example.com", "guest123")
    visit root_path
@@ -17,6 +17,11 @@ describe "Gadgets testing"   do
 
    fill_in "gadget_name", :with => "gadget 1"
    fill_in "gadget_description", :with => " description gadget 1"
+   click_link "Add image"
+   within "#images" do
+      id_input_file =  find("input[type='file']")['id']
+      attach_file(id_input_file,"#{Rails.root}/app/assets/images/rails.png")
+    end
 
    click_button "Send"
 
@@ -51,7 +56,10 @@ describe "Gadgets testing"   do
   end
 
 
-  pending "anyone can list all the gadgets" do 
+  it "anyone can list all the gadgets" do 
+
+    create_user 
+    visit root_path
 
 
   end

@@ -20,7 +20,9 @@ describe "Users testing"   do
   end
 
 
-  pending "user loggout" do
+  it "user loggout" do
+  	user_login "guest@example.com", "guest123"
+  	user_logout
 
   end
 

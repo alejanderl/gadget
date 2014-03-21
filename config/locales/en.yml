@@ -9,6 +9,7 @@ en:
     add: "Add"
     send: "Send"
     delete: "delete"
+    edit: "Edit"
   users: 
     log_out: "log out"
     my_profile: "my profile"
@@ -17,3 +18,4 @@ en:
     new_gadget: "New Gadget"
     edit_gadget: "Edit Gadget"
     gadgets_list: "Gadgets list"
+    add_image: "Add image"

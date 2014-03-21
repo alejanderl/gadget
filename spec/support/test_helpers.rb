@@ -11,7 +11,7 @@ module TestHelpers
 
     end
 
-    click_link "Salir"
+    click_link "sign out"
 
   end
  

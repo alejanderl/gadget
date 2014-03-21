@@ -1,4 +1,5 @@
 <div class="row">
+	<br>
   <h1 class="title col-md-10" ><%= @gadget.name   %></h1>
 
   <div id="content" class="row">
@@ -8,16 +9,21 @@
   		<%= @gadget.description %>
 
   	</div>
+  
 
 
   </div>
-
-	<%= render "images/list" , images: @gadget.images %>
+	<hr>
+	<div class="row">
+		<div class="col-md-8 col-md-offset-1  col-xs-11">
+  			<%= render "images/list" , images: @gadget.images , size: "thumb_100x100" %>
+  		</div>
+ 	</div>
 
 </div>
 
 
-<%= link_to( "global.edit".t , edit_gadget_path(@gadget)) if is_mine? @gadget %>
+<%= link_to( "global.edit".t , edit_gadget_path(@gadget), class: "btn btn-md btn-primary") if is_mine? @gadget %>
 <%= link_to( "global.delete".t , @gadget, method: :delete) if is_mine? @gadget %>
 
 

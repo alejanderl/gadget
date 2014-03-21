@@ -36,7 +36,7 @@ class GadgetsController < ApplicationController
 	end
 	def edit
 
-		@gadget.images.build
+		
 	end
 
 	def update
@@ -75,7 +75,7 @@ class GadgetsController < ApplicationController
 
 		
 		params.require(:gadget).permit(:name,:description, 
-									 :images => [:file, :_destroy])
+									 :images_attributes => [:file, :_destroy, :id])
 
 	end
 

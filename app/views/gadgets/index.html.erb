@@ -13,32 +13,17 @@
   <% @gadgets.each do |gadget|%>
 
     <div class="col-md-offset-1 col-md-10   col-xs-offset-1 col-xs-10 box_container ">
-
-         
-
-
       <div class="name">
        <h2> <%= link_to gadget.name,gadget %></h2>
       </div>
-
-
-
-      
-
-
-
       <div class="row">
         <div class="description col-md-9 " style="padding-left:30px;">
           <%= gadget.description  %>
         </div>
-
-         
-        
       </div>
-
-      
-      <%=render "images/list", :images => gadget.images %>
+      <%=render "images/list", :images => gadget.images, size: "thumb_50x50" %>
     </div>
 
   <% end %>
+  <%= paginate @gadgets, :window => 2, html: {:class => "pull-right"} %>
 </div>

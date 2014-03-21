@@ -20,9 +20,11 @@ class Gadgets.GadgetBuilder
     		attributes = {}
     		attributes["random"] = Math.floor(Math.random()*12213413)
     		_this.questions_field.append Mustache.to_html($('#gadget_image').html(), attributes)
-    	$(".remove_old_question").on "click" , -> 	
-    		$(".destroy",$(this).parents(".input-group")).val 1
-    		$(this).parents("li.old_image").toggle "1000" , ->
+    	$(".remove_old_image").on "click" , -> 
+            $(".destroy",$(this).parents(".input-group")).val 1
+            $(this).parent().parent().fadeOut("1000")
+
+
 
     	$(document).on "click", ".remove_new_image" , ->
     		$(this).parents("li.new_image").toggle "1000" , ->
